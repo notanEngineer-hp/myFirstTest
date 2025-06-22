@@ -1,0 +1,19 @@
+# models/sources.yml
+version: 2
+
+sources:
+  - name: tpch_sample
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+    tables:
+      - name: customer
+      - name: orders
+
+models:
+  - name: snowtestingv1
+    description: "Combine customer data with order info and computes total payment"
+    columns:
+      - name: customer_id
+        description: "unique id for customers"
+      - name: o.item_price and c.customer_account_balance
+        description: to get total payment
